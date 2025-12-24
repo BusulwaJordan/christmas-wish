@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Christmas Surprise for You 🎁</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --red: #c0392b;
@@ -39,9 +42,17 @@
         }
 
         @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         /* Snowfall Effect */
@@ -83,7 +94,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
             margin-bottom: 2rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .gift-container {
@@ -92,13 +103,21 @@
             animation: pulse 2s infinite;
             display: inline-block;
             margin-bottom: 2rem;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         .open-btn {
@@ -110,13 +129,13 @@
             font-weight: 600;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
         }
 
         .open-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
             background: var(--gold);
             color: var(--dark-red);
         }
@@ -127,7 +146,7 @@
             padding: 3rem 2rem;
             border-radius: 20px;
             color: var(--text-color);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
             border: 5px solid var(--gold);
             position: relative;
         }
@@ -172,6 +191,68 @@
             opacity: 0.7;
         }
 
+        /* Create Your Own Section */
+        .create-own {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 0.9rem;
+        }
+
+        .create-own h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .name-input {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--gold);
+            border-radius: 25px;
+            outline: none;
+            width: 150px;
+            font-family: inherit;
+        }
+
+        .share-btn {
+            background: var(--green);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .share-btn:hover {
+            background: var(--dark-green);
+            transform: scale(1.05);
+        }
+
+        .copy-toast {
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
         /* Audio Controls */
         #audio-controls {
             position: fixed;
@@ -181,8 +262,8 @@
         }
 
         .mute-btn {
-            background: rgba(255,255,255,0.2);
-            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             color: white;
             width: 40px;
             height: 40px;
@@ -201,24 +282,57 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .delay-1 { animation-delay: 0.5s; }
-        .delay-2 { animation-delay: 1.2s; }
-        .delay-3 { animation-delay: 2s; }
-        .delay-4 { animation-delay: 2.8s; }
+        .delay-1 {
+            animation-delay: 0.5s;
+        }
+
+        .delay-2 {
+            animation-delay: 1.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 2s;
+        }
+
+        .delay-4 {
+            animation-delay: 2.8s;
+        }
+
+        .delay-5 {
+            animation-delay: 3.5s;
+        }
 
         /* Responsive */
         @media (max-width: 400px) {
-            #reveal-screen h2 { font-size: 2.5rem; }
-            #opening-screen h1 { font-size: 1.5rem; }
+            #reveal-screen h2 {
+                font-size: 2.5rem;
+            }
+
+            #opening-screen h1 {
+                font-size: 1.5rem;
+            }
+
+            .name-input {
+                width: 120px;
+            }
         }
     </style>
 </head>
+
 <body>
     <div id="snow-container"></div>
+    <div id="copy-toast" class="copy-toast">Link copied to clipboard! 📋</div>
 
     <!-- Screen 1: Opening -->
     <div id="opening-screen" class="screen">
@@ -234,17 +348,28 @@
     <div id="reveal-screen" class="screen hidden">
         <h2 class="fade-in">Merry Christmas</h2>
         <p class="fade-in delay-1">May your days be full of peace, joy, and love ❤️</p>
-        
+
         <div class="scripture-box fade-in delay-2">
             <p id="scripture-text">"For unto us a child is born..."</p>
             <span id="scripture-ref" class="ref">- Isaiah 9:6</span>
         </div>
 
-        <p id="message-text" class="personal-msg fade-in delay-3">Wishing you a beautiful Christmas and a blessed New Year ✨</p>
-        
+        <p id="message-text" class="personal-msg fade-in delay-3">Wishing you a beautiful Christmas and a blessed New
+            Year ✨</p>
+
         <div class="fade-in delay-4">
-            <p class="from-jordan">From Jordan, with love ❤️</p>
+            <p class="from-jordan">From <span id="sender-name">Jordan</span>, with love ❤️</p>
             <p class="year">2025</p>
+        </div>
+
+        <!-- Link Generator -->
+        <div class="create-own fade-in delay-5">
+            <h3>Send a wish to someone else:</h3>
+            <div class="input-group">
+                <input type="text" id="name-input" class="name-input" placeholder="Your Name" maxlength="20">
+                <button class="share-btn" onclick="generateLink()">Copy Link</button>
+            </div>
+            <p style="font-size: 0.7rem; opacity: 0.6;">Create your own link and share on WhatsApp!</p>
         </div>
     </div>
 
@@ -254,12 +379,19 @@
             🔊
         </button>
     </div>
-    
+
     <audio id="bg-music" loop>
         <source src="https://cdn.pixabay.com/audio/2022/11/22/audio_104f7ed931.mp3" type="audio/mpeg">
     </audio>
 
     <script>
+        // Check for name in URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const senderName = urlParams.get('name');
+        if (senderName) {
+            document.getElementById('sender-name').innerText = senderName;
+        }
+
         // Scriptures and Messages (embedded for single-file requirement)
         const scriptures = [
             { scripture: "For unto us a child is born, unto us a son is given: and the government shall be upon his shoulder: and his name shall be called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace.", reference: "Isaiah 9:6" },
@@ -267,7 +399,9 @@
             { scripture: "Glory to God in the highest, and on earth peace, good will toward men.", reference: "Luke 2:14" },
             { scripture: "Every good gift and every perfect gift is from above, and cometh down from the Father of lights, with whom is no variableness, neither shadow of turning.", reference: "James 1:17" },
             { scripture: "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.", reference: "John 3:16" },
-            { scripture: "Thanks be unto God for his unspeakable gift.", reference: "2 Corinthians 9:15" }
+            { scripture: "Thanks be unto God for his unspeakable gift.", reference: "2 Corinthians 9:15" },
+            { scripture: "And the Word was made flesh, and dwelt among us.", reference: "John 1:14" },
+            { scripture: "The Lord bless thee, and keep thee: The Lord make his face shine upon thee.", reference: "Numbers 6:24-25" }
         ];
 
         const messages = [
@@ -275,7 +409,9 @@
             "Wishing you a season filled with warm moments and cherished memories.",
             "May the magic and the wonder of the holiday season stay with you always.",
             "Sending you love, peace, and joy this Christmas. You are truly a blessing!",
-            "You are appreciated more than words can say. Wishing you a beautiful Christmas ✨"
+            "You are appreciated more than words can say. Wishing you a beautiful Christmas ✨",
+            "May your home be filled with the joy of the Christmas season. Have a wonderful one!",
+            "Wishing you a Christmas that's as special and wonderful as you are."
         ];
 
         // Snowfall Generation
@@ -286,7 +422,7 @@
             for (let i = 0; i < flakeCount; i++) {
                 const flake = document.createElement('div');
                 flake.className = 'snowflake';
-                
+
                 const size = Math.random() * 5 + 2;
                 const pos = Math.random() * 100;
                 const delay = Math.random() * 5;
@@ -296,7 +432,7 @@
                 flake.style.height = `${size}px`;
                 flake.style.left = `${pos}%`;
                 flake.style.top = `-20px`;
-                
+
                 container.appendChild(flake);
 
                 animateFlake(flake, duration, delay);
@@ -338,7 +474,7 @@
                 op.classList.add('hidden');
                 rev.classList.remove('hidden');
                 controls.classList.remove('hidden');
-                
+
                 // Play music (optional but magical)
                 music.play().catch(e => console.log("Autoplay blocked, user interaction required."));
             }, 600);
@@ -347,7 +483,7 @@
         function toggleMute() {
             const music = document.getElementById('bg-music');
             const icon = document.getElementById('mute-icon');
-            
+
             if (music.muted) {
                 music.muted = false;
                 icon.innerText = '🔊';
@@ -356,6 +492,34 @@
                 icon.innerText = '🔇';
             }
         }
+
+        function generateLink() {
+            const nameInput = document.getElementById('name-input').value.trim();
+            if (!nameInput) {
+                alert("Please enter a name first!");
+                return;
+            }
+
+            const baseUrl = window.location.origin + window.location.pathname;
+            const newUrl = `${baseUrl}?name=${encodeURIComponent(nameInput)}`;
+
+            // Copy to clipboard
+            navigator.clipboard.writeText(newUrl).then(() => {
+                showToast();
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                alert("Link created: " + newUrl);
+            });
+        }
+
+        function showToast() {
+            const toast = document.getElementById('copy-toast');
+            toast.style.opacity = '1';
+            setTimeout(() => {
+                toast.style.opacity = '0';
+            }, 2500);
+        }
     </script>
 </body>
+
 </html>
